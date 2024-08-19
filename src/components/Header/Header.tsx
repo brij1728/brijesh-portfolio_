@@ -1,13 +1,29 @@
-import { Button } from '../ui';
-import React from 'react';
+'use client';
+
+import { Menu } from '../Menu';
+import { useState } from 'react';
 
 export const Header = () => {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
   return (
-    <div>
-      <p>Home</p>
-      <Button className='bg-primary-100' color='primary' variant='contained'>
-        Click me
-      </Button>
-    </div>
+    <header className='bg-white p-4 shadow-md'>
+      <nav className='container mx-auto flex flex-wrap items-center justify-between'>
+        <h1 className='flex-1 text-lg font-bold sm:text-xl'>
+          Work Opportunities in Japan
+        </h1>
+        <button
+          className='text-xl leading-none sm:hidden'
+          onClick={() => setIsNavOpen(!isNavOpen)}
+        >
+          &#9776;
+        </button>
+        <div
+          className={`${isNavOpen ? 'block' : 'hidden'} w-full sm:block sm:w-auto`}
+        >
+          <Menu onLinkClick={() => setIsNavOpen(false)} />
+        </div>
+      </nav>
+    </header>
   );
 };
