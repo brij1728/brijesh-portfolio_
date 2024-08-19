@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <div>
       <p>Home</p>
-      <Button className='bg-primary-100 text-primary-300 ' variant='contained'>
+      <Button className='bg-primary-100 ' color='primary' variant='contained'>
         Click me
       </Button>
     </div>
