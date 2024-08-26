@@ -20,18 +20,38 @@ export const Header = () => {
             .app
           </span>
         </Link>
-        <button
-          className='text-xl leading-none sm:hidden'
-          onClick={() => setIsNavOpen(!isNavOpen)}
-        >
-          &#9776;
-        </button>
-        <div
-          className={`${isNavOpen ? 'block' : 'hidden'} w-full sm:block sm:w-auto`}
-        >
-          <Menu onLinkClick={() => setIsNavOpen(false)} />
+
+        {/* Desktop Menu */}
+        <div className='hidden sm:block'>
+          <Menu onLinkClick={() => {}} />
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className='sm:hidden'>
+          <button
+            className='text-xl leading-none w-10 h-8 flex flex-col justify-between'
+            onClick={() => setIsNavOpen(!isNavOpen)}
+          >
+            <div className='w-10 h-1 bg-secondary-100 rounded'></div>
+            <div className='w-10 h-1 bg-secondary-100 rounded'></div>
+            <div className='w-10 h-1 bg-secondary-100 rounded'></div>
+          </button>
         </div>
       </nav>
+
+      {/* Mobile Menu */}
+      {isNavOpen && (
+        <div className='fixed top-0 left-0 w-full h-full bg-secondary-100 text-primary-300 z-50 flex flex-col justify-center items-center sm:hidden'>
+          {/* Close Button */}
+          <button
+            className='absolute top-4 right-4 text-3xl font-bold'
+            onClick={() => setIsNavOpen(false)}
+          >
+            &times;
+          </button>
+          <Menu onLinkClick={() => setIsNavOpen(false)} />
+        </div>
+      )}
     </header>
   );
 };
