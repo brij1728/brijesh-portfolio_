@@ -10,7 +10,7 @@ export const Menu: React.FC<MenuProps> = ({ onLinkClick }) => {
   const pathName = usePathname();
   const links = [
     {
-      name: 'Home',
+      name: 'Portfolio',
       href: '/',
     },
     {
