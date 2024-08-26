@@ -2,6 +2,7 @@ import './globals.css';
 
 import { CssBaseline, ThemeProvider } from '@mui/material';
 
+import { Header } from '@/components';
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next';
 import { theme } from '../theme';
@@ -23,7 +24,12 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          {children}
+          <div className='h-screen w-screen bg-gradient-to-b from-blue-100 to-red-100'>
+            <div className='h-24'>
+              <Header />
+            </div>
+            <div className='h-[calc(100vh - 6rem)]'> {children}</div>
+          </div>
         </ThemeProvider>
       </body>
     </html>
