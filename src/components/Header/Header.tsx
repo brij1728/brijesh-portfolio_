@@ -1,5 +1,7 @@
 'use client';
 
+import { FaSquareXTwitter } from 'react-icons/fa6';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Menu } from '../Menu';
 import { useState } from 'react';
@@ -24,6 +26,19 @@ export const Header = () => {
         {/* Desktop Menu */}
         <div className='hidden sm:block'>
           <Menu onLinkClick={() => {}} />
+        </div>
+
+        {/* Social Media Urls */}
+        <div className='hidden md:flex gap-4'>
+          <Link href='https://github.com/brij1728'>
+            <Image src='/github.png' alt='' width={20} height={20} />
+          </Link>
+          <Link href='https://www.linkedin.com/in/brijeshapp/'>
+            <Image src='/linkedin.png' alt='' width={20} height={20} />
+          </Link>
+          <Link href='https://x.com/bk10895'>
+            <FaSquareXTwitter size={20} />
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
