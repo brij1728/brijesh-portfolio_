@@ -11,7 +11,7 @@ export const Header = () => {
 
   return (
     <header className='h-full'>
-      <nav className='h-full container mx-auto flex flex-wrap items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48'>
+      <nav className='h-full container mx-auto flex flex-wrap items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl'>
         {/* Logo */}
         <Link
           href='/'

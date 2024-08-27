@@ -30,9 +30,9 @@ export const Menu: React.FC<MenuProps> = ({ onLinkClick }) => {
         <li key={index}>
           <Link
             href={item.href}
-            className={`font-md rounded p-2 ${
+            className={`font-md rounded p-1 ${
               pathName === item.href
-                ? 'bg-btn text-primary'
+                ? 'bg-btn text-primary-300 bg-secondary-100'
                 : 'text-secondary hover:text-btn'
             }`}
             onClick={onLinkClick}
