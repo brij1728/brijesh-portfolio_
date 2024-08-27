@@ -21,14 +21,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body
+        className={`${inter.className} bg-gradient-to-b from-blue-100 to-red-100 `}
+      >
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <div className='h-screen w-screen bg-gradient-to-b from-blue-100 to-red-100'>
+          <div className='min-h-screen w-screen'>
             <div className='h-24'>
               <Header />
             </div>
-            <div className='h-[calc(100vh - 6rem)]'> {children}</div>
+            <div className='min-h-[calc(100vh - 6rem)] mb-4'> {children}</div>
           </div>
         </ThemeProvider>
       </body>
