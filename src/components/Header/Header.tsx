@@ -24,7 +24,7 @@ export const Header = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <div className='hidden sm:block'>
+        <div className='hidden sm:block text-secondary-100'>
           <Menu onLinkClick={() => {}} />
         </div>
 
