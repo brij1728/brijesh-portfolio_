@@ -3,21 +3,20 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className='h-full flex flex-col justify-between md:flex-row items-center px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48'>
+    <div className='min-h-screen w-full flex flex-col md:flex-row items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48  '>
       {/* Image */}
-      <div className='h-1/2 lg:h-full lg:w-1/2 relative'>
+      <div className='relative w-full h-[50vh] md:h-[100vh] md:w-1/2'>
         <Image
           src='/hero.png'
           alt='Hero Image'
-          width={400}
-          height={400}
-          objectFit='cover'
+          fill
+          className='object-contain'
         />
       </div>
       {/* Text */}
-      <div className='h-1/2 w-full md:h-full md:w-1/2 flex flex-col gap-8 items-center justify-center p-4'>
-        <h1 className='text-3xl md:text-5xl lg:text-6xl font-bold text-center'>
-          Crafting Digital Experience, Designing Tomorrow
+      <div className='w-full md:w-1/2 flex flex-col gap-8 items-center justify-center p-4 h-[50vh] md:h-[100vh] text-secondary-100'>
+        <h1 className='text-3xl md:text-5xl lg:text-6xl font-bold text-start'>
+          Crafting Digital Experience, Designing Tomorrow.
         </h1>
         <p className='text-base md:text-lg lg:text-xl text-center'>
           Welcome to my digital canvas, where innovation and creativity

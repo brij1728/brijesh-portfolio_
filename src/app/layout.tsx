@@ -22,15 +22,17 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${inter.className} bg-gradient-to-b from-blue-100 to-red-100 `}
+        className={`${inter.className} bg-gradient-to-b from-blue-100 to-red-100`}
       >
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <div className='min-h-screen w-screen'>
+          <div className='min-h-screen flex flex-col'>
+            {/* Header */}
             <div className='h-24'>
               <Header />
             </div>
-            <div className='min-h-[calc(100vh - 6rem)] mb-4'> {children}</div>
+            {/* Main content */}
+            <div className='flex-grow flex items-center'>{children}</div>
           </div>
         </ThemeProvider>
       </body>
