@@ -14,15 +14,18 @@ export const Header = () => {
   const topVariants = {
     closed: {
       rotate: 0,
+      backgroundColor: 'rgb(0,0,0)',
     },
     opened: {
       rotate: 45,
       backgroundColor: 'rgb(255,255,255)',
     },
   };
+
   const centerVariants = {
     closed: {
       opacity: 1,
+      backgroundColor: 'rgb(0,0,0)',
     },
     opened: {
       opacity: 0,
@@ -32,6 +35,7 @@ export const Header = () => {
   const bottomVariants = {
     closed: {
       rotate: 0,
+      backgroundColor: 'rgb(0,0,0)',
     },
     opened: {
       rotate: -45,
@@ -42,9 +46,11 @@ export const Header = () => {
   const listVariants = {
     closed: {
       x: '100vw',
+      opacity: 0,
     },
     opened: {
       x: 0,
+      opacity: 1,
       transition: {
         when: 'beforeChildren',
         staggerChildren: 0.2,
@@ -64,7 +70,7 @@ export const Header = () => {
   };
 
   return (
-    <header className='h-full'>
+    <header className='h-full relative'>
       <nav className='h-full container mx-auto flex flex-wrap items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 text-xl'>
         {/* Logo */}
         <Link
@@ -82,7 +88,7 @@ export const Header = () => {
           <Menu onLinkClick={() => {}} links={navLinks} />
         </div>
 
-        {/* Social Media Urls */}
+        {/* Social Media Links */}
         <div className='hidden md:flex gap-4'>
           <Link href='https://github.com/brij1728'>
             <Image src='/github.png' alt='' width={20} height={20} />
@@ -98,48 +104,50 @@ export const Header = () => {
         {/* Mobile Menu Button */}
         <div className='sm:hidden'>
           <button
-            className=' w-10 h-8 flex flex-col justify-between z-50 relative'
+            className='w-10 h-8 flex flex-col justify-between z-50 relative'
             onClick={() => setIsNavOpen(prev => !prev)}
           >
             <motion.div
               variants={topVariants}
               animate={isNavOpen ? 'opened' : 'closed'}
-              className='w-10 h-1 rounded bg-secondary-100 origin-left'
+              transition={{ duration: 0.3 }}
+              className='w-10 h-1 rounded origin-left'
             ></motion.div>
             <motion.div
               variants={centerVariants}
               animate={isNavOpen ? 'opened' : 'closed'}
-              className='w-10 h-1 rounded bg-secondary-100'
+              transition={{ duration: 0.3 }}
+              className='w-10 h-1 rounded'
             ></motion.div>
             <motion.div
               variants={bottomVariants}
               animate={isNavOpen ? 'opened' : 'closed'}
-              className='w-10 h-1 rounded bg-secondary-100 origin-left'
+              transition={{ duration: 0.3 }}
+              className='w-10 h-1 rounded origin-left'
             ></motion.div>
           </button>
         </div>
       </nav>
 
       {/* Mobile Menu */}
-      {isNavOpen && (
-        <motion.div
-          variants={listVariants}
-          initial='closed'
-          animate='opened'
-          className={`absolute top-0 left-0 w-screen h-screen bg-secondary-100 text-primary-300 z-50 flex flex-col justify-center items-center sm:hidden`}
-        >
-          {navLinks.map(link => (
-            <motion.div
-              variants={listItemVariants}
-              key={link.name}
-              className='text-lg mb-4'
-              onClick={() => setIsNavOpen(false)} // Close the menu on link click
-            >
-              <Link href={link.href}>{link.name}</Link>
-            </motion.div>
-          ))}
-        </motion.div>
-      )}
+      <motion.div
+        variants={listVariants}
+        initial='closed'
+        animate={isNavOpen ? 'opened' : 'closed'}
+        transition={{ duration: 0.3 }}
+        className={`fixed top-0 left-0 w-full h-full bg-secondary-100 text-primary-300 z-40 flex flex-col justify-center items-center sm:hidden`}
+      >
+        {navLinks.map(link => (
+          <motion.div
+            key={link.name}
+            variants={listItemVariants}
+            className='text-lg mb-4'
+            onClick={() => setIsNavOpen(false)} // Close the menu on link click
+          >
+            <Link href={link.href}>{link.name}</Link>
+          </motion.div>
+        ))}
+      </motion.div>
     </header>
   );
 };
