@@ -141,7 +141,7 @@ export const Header = () => {
           <motion.div
             key={link.name}
             variants={listItemVariants}
-            className='text-lg mb-4'
+            className='text-3xl mb-4'
             onClick={() => setIsNavOpen(false)} // Close the menu on link click
           >
             <Link href={link.href}>{link.name}</Link>
