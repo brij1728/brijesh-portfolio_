@@ -39,7 +39,7 @@ export const TransitionProvider: React.FC<TransitionProviderProps> = ({
           <Header />
         </div>
 
-        <div className='flex-grow flex items-center'>{children}</div>
+        <div className='h-[calc(100vh-6rem)]'>{children}</div>
       </div>
     </AnimatePresence>
   );
