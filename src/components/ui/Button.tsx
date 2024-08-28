@@ -1,4 +1,3 @@
-import MuiButton from '@mui/material/Button';
 import React from 'react';
 
 interface ButtonProps {
@@ -13,17 +12,16 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   onClick,
   className = '',
-  variant,
+
   color,
 }) => {
   return (
-    <MuiButton
+    <button
       onClick={onClick}
-      className={`rounded-md px-4 py-2 font-poppins text-[15px] font-medium bg-primary-100 text-primary-300camelCase ${className}`}
-      variant={variant}
+      className={`rounded-md px-4 py-2 font-poppins text-[15px] font-medium capitalize ${className}`}
       color={color}
     >
       {children}
-    </MuiButton>
+    </button>
   );
 };
