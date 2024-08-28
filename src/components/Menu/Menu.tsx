@@ -3,26 +3,17 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+interface links {
+  name: string;
+  href: string;
+}
 interface MenuProps {
   onLinkClick: () => void;
+  links: links[];
 }
 
-export const Menu: React.FC<MenuProps> = ({ onLinkClick }) => {
+export const Menu: React.FC<MenuProps> = ({ onLinkClick, links }) => {
   const pathName = usePathname();
-  const links = [
-    {
-      name: 'Portfolio',
-      href: '/',
-    },
-    {
-      name: 'About Us',
-      href: '/about',
-    },
-    {
-      name: 'Contact',
-      href: '/contact',
-    },
-  ];
 
   return (
     <ul className='flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0'>
