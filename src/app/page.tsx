@@ -37,10 +37,10 @@ export default function Home() {
             commitment to excellence.
           </p>
           <div className='w-full flex flex-col sm:flex-row gap-4 justify-center'>
-            <Button className='bg-secondary-100 text-primary-300 p-4 rounded-lg ring-1 ring-secondary-100 hover:bg-secondary-100'>
+            <Button className='bg-secondary-100 text-primary-100 p-4 rounded-lg ring-1 ring-secondary-100 hover:bg-secondary-100'>
               View My Work
             </Button>
-            <Button className='bg-primary-300 text-secondary-100 p-4 rounded-lg ring-1 ring-secondary-100 hover:bg-secondary-300 hover:text-primary-300'>
+            <Button className='bg-primary-100 text-secondary-100 p-4 rounded-lg ring-1 ring-secondary-100 hover:bg-secondary-300 hover:text-primary-100'>
               Contact Me
             </Button>
           </div>

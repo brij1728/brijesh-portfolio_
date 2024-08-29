@@ -23,7 +23,7 @@ export const Menu: React.FC<MenuProps> = ({ onLinkClick, links }) => {
             href={item.href}
             className={`font-md rounded p-1 ${
               pathName === item.href
-                ? 'bg-btn text-primary-300 bg-secondary-100'
+                ? 'bg-btn text-primary-100 bg-secondary-100'
                 : 'text-secondary hover:text-btn'
             }`}
             onClick={onLinkClick}
