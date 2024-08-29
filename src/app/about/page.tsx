@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { skills } from '@/data';
 
 const AboutPage = () => {
   return (
@@ -32,6 +33,7 @@ const AboutPage = () => {
               responsive designs. I excel in collaborative environments and
               consistently deliver high-performance solutions.
             </p>
+            {/* Signature */}
             <div className='self-end'>
               <svg
                 width='301'
@@ -115,42 +117,14 @@ const AboutPage = () => {
               Skills
             </h1>
             <div className='flex flex-wrap gap-4'>
-              <div className='rounded p-2 text-sm cursor-pointer bg-secondary-100 hover:bg-primary-100 text-primary-100 hover:text-secondary-100'>
-                Next.js
-              </div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-secondary-100 hover:bg-primary-100 text-primary-100 hover:text-secondary-100'>
-                React.js
-              </div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-secondary-100 hover:bg-primary-100 text-primary-100 hover:text-secondary-100'>
-                Typescript
-              </div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-secondary-100 hover:bg-primary-100 text-primary-100 hover:text-secondary-100'>
-                Javascript
-              </div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-secondary-100 hover:bg-primary-100 text-primary-100 hover:text-secondary-100'>
-                Tailwind CSS
-              </div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-secondary-100 hover:bg-primary-100 text-primary-100 hover:text-secondary-100'>
-                Framer Motion
-              </div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-secondary-100 hover:bg-primary-100 text-primary-100 hover:text-secondary-100'>
-                Git
-              </div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-secondary-100 hover:bg-primary-100 text-primary-100 hover:text-secondary-100'>
-                Github
-              </div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-secondary-100 hover:bg-primary-100 text-primary-100 hover:text-secondary-100'>
-                Node.js
-              </div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-secondary-100 hover:bg-primary-100 text-primary-100 hover:text-secondary-100'>
-                MongoDB
-              </div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-secondary-100 hover:bg-primary-100 text-primary-100 hover:text-secondary-100'>
-                Material UI
-              </div>
-              <div className='rounded p-2 text-sm cursor-pointer bg-secondary-100 hover:bg-primary-100 text-primary-100 hover:text-secondary-100'>
-                Redux
-              </div>
+              {skills.map((skill, index) => (
+                <div
+                  key={index}
+                  className='rounded p-2 text-sm cursor-pointer bg-secondary-100 hover:bg-primary-100 text-primary-100 hover:text-secondary-100'
+                >
+                  {skill}
+                </div>
+              ))}
             </div>
           </div>
           {/* EXPERIENCE CONTAINER */}
