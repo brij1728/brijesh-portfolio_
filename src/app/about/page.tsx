@@ -11,9 +11,9 @@ const AboutPage = () => {
       transition={{ duration: 1 }}
     >
       {/* CONTAINER */}
-      <div className=' h-full '>
+      <div className=' h-full overflow-scroll lg:flex'>
         {/* TEXT CONTAINER */}
-        <div className='p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64'>
+        <div className='p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 lg:pr-0 xl:w-1/2'>
           {/* BIOGRAPHY CONTAINER */}
           <div className='flex flex-col justify-center gap-4 md:gap-6'>
             <h1 className='text-secondary-100 uppercase font-bold text-2xl'>
@@ -154,10 +154,65 @@ const AboutPage = () => {
             </div>
           </div>
           {/* EXPERIENCE CONTAINER */}
-          <div className=''>Experience</div>
+          <div className='flex flex-col justify-center gap-4 md:gap-6 pb-48'>
+            <h1 className='text-secondary-100 uppercase font-bold text-2xl'>
+              Experience
+            </h1>
+            <div className=''>
+              <div className=''>
+                {/* Left */}
+                <div className='flex justify-between h-48'>
+                  <div className='w-1/3'>
+                    <h2 className='bg-primary-100 text-secondary-100 font-semibold p-3 rounded-b-lg rounded-s-lg text-lg'>
+                      Software Engineer
+                    </h2>
+                    <p className='text-secondary-100 p-3 text-sm italic'>
+                      Works on e-commerce application for organic stores using
+                      React Application
+                    </p>
+                    <p className='p-3 text-red-400 text-sm font-semibold'>
+                      2020 January - 2021 October
+                    </p>
+                    <p className='bg-primary-100 text-secondary-100 p-1 rounded text-sm font-semibold w-fit '>
+                      Pyfox Technologies
+                    </p>
+                  </div>
+                  <div className='w-1/6 '>
+                    <div className='w-1 h-full bg-gray-600 rounded relative'>
+                      <div className='absolute w-5 h-5 rounded-full ring-4 ring-red-500 bg-primary-100 -left-2'></div>
+                    </div>
+                  </div>
+                  <div className='w-1/3'></div>
+                </div>
+                <div className='flex justify-between h-48'>
+                  <div className='w-1/3'></div>
+                  <div className='w-1/6 '>
+                    <div className='w-1 h-full bg-gray-600 rounded relative'>
+                      <div className='absolute w-5 h-5 rounded-full ring-4 ring-red-500 bg-primary-100 -left-2'></div>
+                    </div>
+                  </div>
+                  <div className='w-1/3'>
+                    <h2 className='bg-primary-100 text-secondary-100 font-semibold p-3 rounded-b-lg rounded-s-lg text-lg'>
+                      Intern - Content Development
+                    </h2>
+                    <p className='text-secondary-100 p-3 text-sm italic'>
+                      Created and reviewed content for personalized question
+                      papers and workbooks
+                    </p>
+                    <p className='p-3 text-red-400 text-sm font-semibold'>
+                      2015 June - 2015 July
+                    </p>
+                    <p className='bg-primary-100 text-secondary-100  p-1 rounded text-sm font-semibold w-fit'>
+                      ClassKlap
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         {/* SVG CONTAINER */}
-        <div className='hidden md:block'></div>
+        <div className='hidden lg:block w-1/3 sticky top-0 z-30 xl:w-1/2'></div>
       </div>
     </motion.div>
   );
