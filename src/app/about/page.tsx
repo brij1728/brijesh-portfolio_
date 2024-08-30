@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll } from 'framer-motion';
+import { motion, useInView, useScroll } from 'framer-motion';
 
 import { Brain } from '@/components';
 import Image from 'next/image';
@@ -12,7 +12,9 @@ const AboutPage = () => {
     null,
   ) as React.MutableRefObject<HTMLDivElement | null>;
   const { scrollYProgress } = useScroll({ container: containerRef });
-  console.log(scrollYProgress);
+
+  const skillRef = useRef<HTMLDivElement | null>(null);
+  const isSkillRefInView = useInView(skillRef);
   return (
     <motion.div
       className='h-full '
@@ -128,11 +130,23 @@ const AboutPage = () => {
             </div>
           </div>
           {/* SKILSS CONTAINER */}
-          <div className='flex flex-col justify-center gap-4 md:gap-6'>
-            <h1 className='text-secondary-100 uppercase font-bold text-2xl'>
+          <div
+            className='flex flex-col justify-center gap-4 md:gap-6'
+            ref={skillRef}
+          >
+            <motion.h1
+              initial={{ x: '-300px' }}
+              animate={isSkillRefInView ? { x: 0 } : {}}
+              transition={{ delay: 0.2 }}
+              className='text-secondary-100 uppercase font-bold text-2xl'
+            >
               Skills
-            </h1>
-            <div className='flex flex-wrap gap-4'>
+            </motion.h1>
+            <motion.div
+              initial={{ x: '-300px' }}
+              animate={isSkillRefInView ? { x: 0 } : {}}
+              className='flex flex-wrap gap-4'
+            >
               {skills.map((skill, index) => (
                 <div
                   key={index}
@@ -141,7 +155,7 @@ const AboutPage = () => {
                   {skill}
                 </div>
               ))}
-            </div>
+            </motion.div>
           </div>
           {/* EXPERIENCE CONTAINER */}
           <div className='flex flex-col justify-center gap-4 md:gap-6 pb-48'>
