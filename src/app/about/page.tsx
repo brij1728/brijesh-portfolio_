@@ -3,6 +3,7 @@
 import { motion, useScroll } from 'framer-motion';
 
 import { Brain } from '@/components';
+import Image from 'next/image';
 import { skills } from '@/data';
 import { useRef } from 'react';
 
@@ -25,6 +26,13 @@ const AboutPage = () => {
         <div className='p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-64 lg:w-2/3 lg:pr-0 xl:w-1/2'>
           {/* BIOGRAPHY CONTAINER */}
           <div className='flex flex-col justify-center gap-4 md:gap-6'>
+            <Image
+              src='/profile.jpeg'
+              alt='Profile Picture'
+              width={112}
+              height={112}
+              className='w-28 h-28 rounded-full object-cover'
+            />
             <h1 className='text-secondary-100 uppercase font-bold text-2xl'>
               Biography
             </h1>
