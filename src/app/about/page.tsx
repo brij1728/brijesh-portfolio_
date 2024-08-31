@@ -14,7 +14,11 @@ const AboutPage = () => {
   const { scrollYProgress } = useScroll({ container: containerRef });
 
   const skillRef = useRef<HTMLDivElement | null>(null);
-  const isSkillRefInView = useInView(skillRef);
+  const isSkillRefInView = useInView(skillRef, { margin: '-100px' });
+
+  const experienceRef = useRef<HTMLDivElement | null>(null);
+  const isExperienceRefInView = useInView(experienceRef, { margin: '-100px' });
+
   return (
     <motion.div
       className='h-full '
@@ -158,61 +162,70 @@ const AboutPage = () => {
             </motion.div>
           </div>
           {/* EXPERIENCE CONTAINER */}
-          <div className='flex flex-col justify-center gap-4 md:gap-6 pb-48'>
-            <h1 className='text-secondary-100 uppercase font-bold text-2xl'>
+          <div
+            className='flex flex-col justify-center gap-4 md:gap-6 pb-48'
+            ref={experienceRef}
+          >
+            <motion.h1
+              initial={{ x: '-300px' }}
+              animate={isExperienceRefInView ? { x: 0 } : {}}
+              transition={{ delay: 0.2 }}
+              className='text-secondary-100 uppercase font-bold text-2xl'
+            >
               Experience
-            </h1>
-            <div className=''>
-              <div className=''>
-                {/* Left */}
-                <div className='flex justify-between h-48'>
-                  <div className='w-1/3'>
-                    <h2 className='bg-primary-100 text-secondary-100 font-semibold p-3 rounded-b-lg rounded-s-lg text-lg'>
-                      Software Engineer
-                    </h2>
-                    <p className='text-secondary-100 p-3 text-sm italic'>
-                      Works on e-commerce application for organic stores using
-                      React Application
-                    </p>
-                    <p className='p-3 text-red-400 text-sm font-semibold'>
-                      2020 January - 2021 October
-                    </p>
-                    <p className='bg-primary-100 text-secondary-100 p-1 rounded text-sm font-semibold w-fit '>
-                      Pyfox Technologies
-                    </p>
-                  </div>
-                  <div className='w-1/6 '>
-                    <div className='w-1 h-full bg-gray-600 rounded relative'>
-                      <div className='absolute w-5 h-5 rounded-full ring-4 ring-red-500 bg-primary-100 -left-2'></div>
-                    </div>
-                  </div>
-                  <div className='w-1/3'></div>
+            </motion.h1>
+            <motion.div
+              initial={{ x: '-300px' }}
+              animate={isExperienceRefInView ? { x: '0' } : {}}
+              className=''
+            >
+              <div className='flex justify-between h-48'>
+                <div className='w-1/3'>
+                  <h2 className='bg-primary-100 text-secondary-100 font-semibold p-3 rounded-b-lg rounded-s-lg text-lg'>
+                    Software Engineer
+                  </h2>
+                  <p className='text-secondary-100 p-3 text-sm italic'>
+                    Works on e-commerce application for organic stores using
+                    React Application
+                  </p>
+                  <p className='p-3 text-red-400 text-sm font-semibold'>
+                    2020 January - 2021 October
+                  </p>
+                  <p className='bg-primary-100 text-secondary-100 p-1 rounded text-sm font-semibold w-fit '>
+                    Pyfox Technologies
+                  </p>
                 </div>
-                <div className='flex justify-between h-48'>
-                  <div className='w-1/3'></div>
-                  <div className='w-1/6 '>
-                    <div className='w-1 h-full bg-gray-600 rounded relative'>
-                      <div className='absolute w-5 h-5 rounded-full ring-4 ring-red-500 bg-primary-100 -left-2'></div>
-                    </div>
+                <div className='w-1/6 '>
+                  <div className='w-1 h-full bg-gray-600 rounded relative'>
+                    <div className='absolute w-5 h-5 rounded-full ring-4 ring-red-500 bg-primary-100 -left-2'></div>
                   </div>
-                  <div className='w-1/3'>
-                    <h2 className='bg-primary-100 text-secondary-100 font-semibold p-3 rounded-b-lg rounded-s-lg text-lg'>
-                      Intern - Content Development
-                    </h2>
-                    <p className='text-secondary-100 p-3 text-sm italic'>
-                      Created and reviewed content for personalized question
-                      papers and workbooks
-                    </p>
-                    <p className='p-3 text-red-400 text-sm font-semibold'>
-                      2015 June - 2015 July
-                    </p>
-                    <p className='bg-primary-100 text-secondary-100  p-1 rounded text-sm font-semibold w-fit'>
-                      ClassKlap
-                    </p>
+                </div>
+                <div className='w-1/3'></div>
+              </div>
+              <div className='flex justify-between h-48'>
+                <div className='w-1/3'></div>
+                <div className='w-1/6 '>
+                  <div className='w-1 h-full bg-gray-600 rounded relative'>
+                    <div className='absolute w-5 h-5 rounded-full ring-4 ring-red-500 bg-primary-100 -left-2'></div>
                   </div>
+                </div>
+                <div className='w-1/3'>
+                  <h2 className='bg-primary-100 text-secondary-100 font-semibold p-3 rounded-b-lg rounded-s-lg text-lg'>
+                    Intern - Content Development
+                  </h2>
+                  <p className='text-secondary-100 p-3 text-sm italic'>
+                    Created and reviewed content for personalized question
+                    papers and workbooks
+                  </p>
+                  <p className='p-3 text-red-400 text-sm font-semibold'>
+                    2015 June - 2015 July
+                  </p>
+                  <p className='bg-primary-100 text-secondary-100  p-1 rounded text-sm font-semibold w-fit'>
+                    ClassKlap
+                  </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
         {/* SVG CONTAINER */}
