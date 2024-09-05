@@ -20,9 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' className='h-full'>
       <body
-        className={`${inter.className} bg-gradient-to-b from-blue-100 to-red-100`}
+        className={`${inter.className} bg-gradient-to-b from-blue-100 to-red-100 h-full min-h-screen`}
       >
         <ThemeProvider theme={theme}>
           <CssBaseline />
