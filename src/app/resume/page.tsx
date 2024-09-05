@@ -16,7 +16,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 
 const ResumePage = () => {
   return (
-    <div className='min-h-screen flex flex-col justify-center items-center px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48 py-8'>
+    <div className='flex flex-col items-center justify-center min-h-screen w-full bg-gradient-to-b from-blue-100 to-red-100 py-10'>
       <div className='mb-8 text-center'>
         <Link
           href={'/Brijesh Kumar resume.pdf'}
@@ -25,8 +25,8 @@ const ResumePage = () => {
           locale={false}
           download
         >
-          <Button className='bg-blue-500 text-white px-6 py-2 rounded-md'>
-            Download
+          <Button className='bg-secondary-100 text-white px-6 py-2 rounded-md'>
+            Download CV
           </Button>
         </Link>
       </div>
@@ -34,6 +34,19 @@ const ResumePage = () => {
         <Document file={'/Brijesh Kumar resume.pdf'}>
           <Page pageNumber={1} />
         </Document>
+      </div>
+      <div className='my-8 text-center'>
+        <Link
+          href={'/Brijesh Kumar resume.pdf'}
+          target='_blank'
+          rel='noopener noreferrer'
+          locale={false}
+          download
+        >
+          <Button className='bg-secondary-100 text-white px-6 py-2 rounded-md'>
+            Download CV
+          </Button>
+        </Link>
       </div>
     </div>
   );
