@@ -1,25 +1,30 @@
-'use client';
-
-import * as PDFJS from 'pdfjs-dist/build/pdf'; // Updated import for pdfjs-dist
-
 import { useEffect, useState } from 'react';
 
+import { pdfjs } from 'react-pdf';
+
+// Define a type for pdfjs to avoid circular reference
+type PDFJSInstance = typeof pdfjs;
+
+// Hook to dynamically load pdfjs-dist
 export const usePDFJS = (
-  onLoad: (pdfjs: typeof PDFJS) => Promise<void>,
+  onLoad: (pdfjs: PDFJSInstance) => Promise<void>,
   deps: (string | number | boolean | undefined | null)[] = [],
 ) => {
-  const [pdfjs, setPDFJS] = useState<typeof PDFJS | null>(null);
+  const [pdfjsInstance, setPDFJSInstance] = useState<PDFJSInstance | null>(
+    null,
+  );
 
   useEffect(() => {
-    import('pdfjs-dist/build/pdf').then(pdfjsModule => {
-      // Set workerSrc to point to the correct path in the public directory
-      pdfjsModule.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs';
-      setPDFJS(pdfjsModule);
+    // Dynamically import 'react-pdf' to access pdfjs
+    import('react-pdf').then(module => {
+      // Set workerSrc to point to the public directory
+      module.pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
+      setPDFJSInstance(module.pdfjs);
     });
   }, []);
 
   useEffect(() => {
-    if (!pdfjs) return;
-    (async () => await onLoad(pdfjs))();
-  }, [pdfjs, ...deps]);
+    if (!pdfjsInstance) return;
+    (async () => await onLoad(pdfjsInstance))();
+  }, [pdfjsInstance, ...deps]);
 };
